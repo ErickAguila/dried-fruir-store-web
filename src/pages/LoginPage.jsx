@@ -7,6 +7,9 @@ import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useToast } from "../components/ui/use-toast"
+import { signInWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../services/firebase";
+import { auth } from "./../services/firebase";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -36,6 +39,9 @@ export default function LoginPage() {
     setError("")
 
     try {
+      //TODO: Integración con Firebase
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log(userCredential);
       await login(email, password)
       toast({
         title: "Inicio de sesión exitoso",

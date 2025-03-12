@@ -22,7 +22,7 @@ export default function HeroSection() {
               </Button>
             </Link>
             <Link to="/registro">
-              <Button variant="outline" size="lg" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto text-black">
                 Crear Cuenta
               </Button>
             </Link>

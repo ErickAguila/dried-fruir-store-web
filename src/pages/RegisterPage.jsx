@@ -8,6 +8,7 @@ import { Label } from "../components/ui/label"
 import { RadioGroup, RadioGroupItem } from "../components/ui/radio-group"
 import { Link, useNavigate } from "react-router-dom"
 import { useToast } from "../components/ui/use-toast"
+import api from "../services/api"
 
 export default function RegisterPage() {
   const [name, setName] = useState("")
@@ -34,6 +35,15 @@ export default function RegisterPage() {
     }
 
     try {
+      const data = { 
+        username: name,
+        password,
+        email,
+        role: userType,
+      };
+      console.log(data)
+      const response = await api.post("/users", data)
+      console.log(response);
       await register(name, email, password, userType)
       toast({
         title: "Registro exitoso",
@@ -113,7 +123,7 @@ export default function RegisterPage() {
               <Label>Tipo de Usuario</Label>
               <RadioGroup value={userType} onValueChange={setUserType} className="flex space-x-4">
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="buyer" id="buyer" />
+                  <RadioGroupItem value="cliente" id="buyer" />
                   <Label htmlFor="buyer">Comprador</Label>
                 </div>
                 <div className="flex items-center space-x-2">
