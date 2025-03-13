@@ -6,25 +6,25 @@ const categories = [
     id: "electronics",
     name: "Electrónica",
     description: "Smartphones, laptops, gadgets y más",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://cdnx.jumpseller.com/importadoramerino/image/37952144/resize/640/640?1690324931",
   },
   {
     id: "clothing",
     name: "Ropa",
     description: "Moda para hombres, mujeres y niños",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://proutdoor.cl/wp-content/uploads/2024/11/polera-negra-adelante.jpg",
   },
   {
     id: "home",
     name: "Hogar",
     description: "Muebles, decoración y artículos para el hogar",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://http2.mlstatic.com/D_NQ_NP_981951-MLU70681171678_072023-O.webp",
   },
   {
     id: "beauty",
     name: "Belleza",
     description: "Cosméticos, perfumes y cuidado personal",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://s2.abcstatics.com/abc/www/multimedia/estilo/2024/11/28/black-friday-cosmetica-R47fIVyZrPeGCYp3emgo3JL-1200x840@diario_abc.jpg",
   },
 ]
 

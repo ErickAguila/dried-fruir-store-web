@@ -8,7 +8,6 @@ import { Label } from "../components/ui/label"
 import { Link, useNavigate, useLocation } from "react-router-dom"
 import { useToast } from "../components/ui/use-toast"
 import { signInWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../services/firebase";
 import { auth } from "./../services/firebase";
 
 export default function LoginPage() {
@@ -38,26 +37,27 @@ export default function LoginPage() {
     setIsLoading(true)
     setError("")
 
-    try {
-      //TODO: Integración con Firebase
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log(userCredential);
-      await login(email, password)
+    await signInWithEmailAndPassword(auth, email, password)
+    .then(async (response) => {
+      // console.log(response)
+      await login(email, password, response.user.accessToken)
       toast({
         title: "Inicio de sesión exitoso",
         description: "Has iniciado sesión correctamente",
       })
       navigate(redirect)
-    } catch (err) {
+    })
+    .catch((error) => {
       setError("Credenciales inválidas. Por favor, inténtalo de nuevo.")
       toast({
         variant: "destructive",
         title: "Error de inicio de sesión",
-        description: err.message || "Credenciales inválidas",
+        description: error.message || "Credenciales inválidas",
       })
-    } finally {
+    })
+    .finally(() => {
       setIsLoading(false)
-    }
+    })
   }
 
   return (

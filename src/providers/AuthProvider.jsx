@@ -15,20 +15,22 @@ export function AuthProvider({ children }) {
     }
   }, [])
 
-  const login = async (email, password) => {
+  const login = async (email, password, token) => {
     // In a real app, you would make an API call to authenticate
     // For demo purposes, we'll simulate a successful login
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate login validation
-        if (email && password) {
+        if (email && password && token) {
           // Check if user exists in localStorage (for demo)
           const users = JSON.parse(localStorage.getItem("users") || "[]")
           const foundUser = users.find((u) => u.email === email)
 
           if (foundUser) {
+            //TODO: Los datos del usaurio debe ir a buscarse en base de datos
             setUser(foundUser)
             localStorage.setItem("user", JSON.stringify(foundUser))
+            localStorage.setItem("token", JSON.stringify(token))
             resolve()
           } else {
             reject(new Error("Usuario no encontrado"))
@@ -65,7 +67,8 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     setUser(null)
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
   }
 
   const updateUser = (updatedUser) => {

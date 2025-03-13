@@ -34,32 +34,31 @@ export default function RegisterPage() {
       return
     }
 
-    try {
-      const data = { 
-        username: name,
-        password,
-        email,
-        role: userType,
-      };
-      console.log(data)
-      const response = await api.post("/users", data)
-      console.log(response);
-      await register(name, email, password, userType)
-      toast({
-        title: "Registro exitoso",
-        description: "Tu cuenta ha sido creada correctamente",
-      })
-      navigate("/login")
-    } catch (err) {
+    const userData = {
+      username: name,
+      password,
+      email,
+      role: userType,
+    };
+    await api.post("/users", userData).then(async (response) => {
+      if (response.status === 201) {
+        await register(name, email, password, userType)
+        toast({
+          title: "Registro exitoso",
+          description: "Tu cuenta ha sido creada correctamente",
+        })
+        navigate("/login")
+      }
+    }).catch((error) => {
       setError("Error al registrar. Por favor, inténtalo de nuevo.")
       toast({
         variant: "destructive",
         title: "Error de registro",
-        description: err.message || "Error al crear la cuenta",
+        description: error.message || "Error al crear la cuenta",
       })
-    } finally {
+    }).finally(() => {
       setIsLoading(false)
-    }
+    });
   }
 
   return (
