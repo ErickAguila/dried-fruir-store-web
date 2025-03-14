@@ -1,7 +1,8 @@
 import axios from "axios";
+import { configVar } from "../shared/configVar";
 
 const api = axios.create({
-  baseURL: import.meta.env.VIRE_URL_BFF_WEB,
+  baseURL: configVar.URL_BFF_WEB,
   timeout: 5000, // Tiempo máximo de espera (opcional)
   headers: {
     "Content-Type": "application/json",
