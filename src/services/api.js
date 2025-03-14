@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3001", // Cambia por tu API
+  baseURL: import.meta.env.VIRE_URL_BFF_WEB,
   timeout: 5000, // Tiempo máximo de espera (opcional)
   headers: {
     "Content-Type": "application/json",
