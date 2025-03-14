@@ -17,12 +17,13 @@ export default function ProductDetailPage() {
 
   useEffect(() => {
     if (id && products.length > 0) {
-      const foundProduct = products.find((p) => p.id === id)
+      const foundProduct = products.find((p) => p.id === parseInt(id))
 
       if (foundProduct) {
         setProduct(foundProduct)
       } else {
         // Product not found, redirect to products page
+        console.log('Producto no encontrado, redirigiendo a la página de productos')
         navigate("/productos")
       }
     }
