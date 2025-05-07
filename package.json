@@ -7,7 +7,9 @@
     "dev": "vite --port 3000",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "docker:build": "docker build -t dried-fruir-store-web .",
+    "docker:run": "docker run -p 3000:8080 -e PORT=8080 dried-fruir-store-web"
   },
   "dependencies": {
     "@firebase/auth": "^1.9.1",
