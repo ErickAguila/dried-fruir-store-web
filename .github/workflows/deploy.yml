@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   REGION: us-central1
-  SERVICE_NAME: frontend-vite
+  SERVICE_NAME:  dried-fruir-store-web
 
 jobs:
   build-and-deploy:
