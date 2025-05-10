@@ -10,7 +10,7 @@ export default function HeroSection() {
       ></div>
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="max-w-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Descubre productos increíbles para tu estilo de vida</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Cambios de diseño para activar workflow</h1>
           <p className="text-lg md:text-xl mb-8">
             Explora nuestra colección de productos de alta calidad seleccionados para ti. Desde electrónica hasta moda,
             tenemos todo lo que necesitas.
