@@ -2,10 +2,11 @@ name: Deploy to Cloud Run
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main-gcp
 
 env:
-  PROJECT_ID: tu-id-de-proyecto
+  PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   REGION: us-central1
   REPO_NAME: cloud-run-source-deploy
   SERVICE_NAME: dried-fruir-store-web/dried-fruir-store-web
